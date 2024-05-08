@@ -1,0 +1,87 @@
+<html>
+    <title>Train Ticket Reservation</title>
+    <link rel="stylesheet" href="seat_reserve.css">
+</head>
+<body background="C:\Users\meghn\Documents\seat_reserve.jpg">
+
+<div class="container">
+    <h2>Train Ticket Reservation</h2>
+    <div class="passenger">
+        <label for="name1">Name:</label>
+        <input type="text" id="name1" name="name1" placeholder="Enter name">
+
+        <label for="mobile1">Mobile Number:</label>
+        <input type="tel" id="mobile1" name="mobile1" placeholder="Enter mobile number">
+
+        <label for="email1">Email:</label>
+        <input type="email" id="email1" name="email1" placeholder="Enter email">
+
+        <label for="seat-type1">Seat Type:</label>
+        <select id="seat-type1" name="seat-type1">
+            <option value="">Select seat</option>
+            <option value="window">Window</option>
+            <option value="aisle">Aisle</option>
+            <option value="middle">Middle</option>
+        </select>
+        <label for="coach-preference">Coach-preference:</label>
+        <select id="coach-preference" name="coach-preference">
+            <option value="">Select coach-preference</option>
+            <option value="ac">AC coach</option>
+            <option value="second-sitting">second-sitting</option>
+        </select>
+    </div>
+
+    <div class="add-passenger">
+        <button id="addPassenger">Add Passenger</button>
+    </div>
+
+    <input type="submit" value="Book Now">
+</div>
+
+<script>
+    document.getElementById("addPassenger").addEventListener("click", function() {
+        var passengerCount = document.querySelectorAll('.passenger').length;
+        var newPassengerCount = passengerCount + 1;
+
+        var newPassenger = document.createElement('div');
+        newPassenger.classList.add('passenger');
+        newPassenger.innerHTML = `
+            <label for="name${newPassengerCount}">Name:</label>
+            <input type="text" id="name${newPassengerCount}" name="name${newPassengerCount}" placeholder="Enter name">
+            
+            <label for="mobile${newPassengerCount}">Mobile Number:</label>
+            <input type="tel" id="mobile${newPassengerCount}" name="mobile${newPassengerCount}" placeholder="Enter mobile number">
+            
+            <label for="email${newPassengerCount}">Email:</label>
+            <input type="email" id="email${newPassengerCount}" name="email${newPassengerCount}" placeholder="Enter email">
+
+            <label for="seat-type${newPassengerCount}">Seat Type:</label>
+            <select id="seat-type${newPassengerCount}" name="seat-type${newPassengerCount}">
+                <option value="">Select seat</option>
+                <option value="window">Window</option>
+                <option value="aisle">Aisle</option>
+                <option value="middle">Middle</option>
+            </select>
+            <label for="coach-preference${newPassengerCount}">Coach Preference:</label>
+            <select id="coach-preference${newPassengerCount}" name="coach-preference${newPassengerCount}">
+                <option value="">Select coach-preference</option>
+                <option value="ac">AC Coach</option>
+                <option value="second-sitting">Second Sitting</option>
+            </select>
+
+            <button class="remove-passenger" onclick="removePassenger(this)">Remove Passenger</button>
+        `;
+        document.querySelector('.add-passenger').before(newPassenger);
+    });
+
+    function removePassenger(element) {
+        element.parentNode.remove();
+    }
+</script>
+
+</body>
+</html>
+
+
+
+
