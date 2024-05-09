@@ -12,9 +12,11 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  min-width: 100%;
   background: #1f242d;
   padding: 25px;
 }
+
 
 .container form {
   width: 700px;
@@ -84,6 +86,9 @@ form .btn:hover {
   background: #6a5acd;
 }
 
+footer {
+  background: #1f242d;
+}
 img {
   height: 45px;
 }
