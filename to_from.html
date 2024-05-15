@@ -31,7 +31,7 @@
       </nav>
 <div class="container">
     <h2>Train Ticket Booking</h2>
-    <form action="">
+    <form   id="train-form" action="select-train.html" method="get">
         <label for="from" style="color: #f2f2f2;">From:</label>
         <select name="from" id="from" name="from">
             <option value="">Enter departure city</option>
@@ -63,6 +63,16 @@
         <input type="submit" value="Search trains">
     </form>
 </div>
+
+<script>
+  document.getElementById('train-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const from = document.getElementById('from').value;
+      const to = document.getElementById('to').value;
+      const date = document.getElementById('date').value;
+      window.location.href = `select-train.html?from=${from}&to=${to}&date=${date}`;
+  });
+</script>
 
 </body>
 </html>

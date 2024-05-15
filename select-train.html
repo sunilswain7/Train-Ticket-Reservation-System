@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Trains</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h2>Available Trains</h2>
+        <div id="trainsList"></div>
+    </div>
+
+    <script>
+          const trainSchedules = [
+          { from: 'kpy', to: 'kyj', name: 'Chennai Express', number: '12345', departure: '10:00 AM', arrival: '12:00 PM' },
+    { from: 'kpy', to: 'kyj', name: 'Kanyakumari Express', number: '12346', departure: '12:00 PM', arrival: '02:00 PM' },
+    { from: 'kpy', to: 'kyj', name: 'Southern Railway', number: '12347', departure: '04:00 PM', arrival: '06:00 PM' },
+    { from: 'kpy', to: 'ndls', name: 'Grand Trunk Express', number: '67890', departure: '02:00 PM', arrival: '08:00 PM' },
+    { from: 'kpy', to: 'ndls', name: 'Tamil Nadu Express', number: '67891', departure: '06:00 PM', arrival: '12:00 AM' },
+    { from: 'kpy', to: 'ndls', name: 'Guruvayur Express', number: '67892', departure: '10:00 PM', arrival: '04:00 AM' },
+    { from: 'bmt', to: 'sbc', name: 'Brindavan Express', number: '11223', departure: '06:00 AM', arrival: '10:00 AM' },
+    { from: 'bmt', to: 'sbc', name: 'Yesvantpur Express', number: '11224', departure: '08:00 AM', arrival: '12:00 PM' },
+    { from: 'bmt', to: 'sbc', name: 'Shatabdi Express', number: '11225', departure: '04:00 PM', arrival: '08:00 PM' },
+    { from: 'tvc', to: 'mmct', name: 'Kerala Express', number: '33456', departure: '06:00 AM', arrival: '02:00 PM' },
+    { from: 'tvc', to: 'mmct', name: 'Mangalore Express', number: '33457', departure: '10:00 AM', arrival: '06:00 PM' },
+    { from: 'tvc', to: 'mmct', name: 'Mumbai Mail', number: '33458', departure: '02:00 PM', arrival: '10:00 PM' },
+    { from: 'ndls', to: 'sbc', name: 'Rajdhani Express', number: '77890', departure: '08:00 AM', arrival: '08:00 PM' },
+    { from: 'ndls', to: 'sbc', name: 'Duronto Express', number: '77891', departure: '02:00 PM', arrival: '02:00 AM' },
+    { from: 'ndls', to: 'sbc', name: 'Chennai Rajdhani', number: '77892', departure: '08:00 PM', arrival: '08:00 AM' },
+    { from: 'ndls', to: 'sbc', name: 'Bangalore Rajdhani', number: '77893', departure: '10:00 AM', arrival: '10:00 PM' },
+    { from: 'mmct', to: 'pune', name: 'Deccan Queen', number: '44556', departure: '06:00 AM', arrival: '10:00 AM' },
+    { from: 'mmct', to: 'pune', name: 'Pune Intercity', number: '44557', departure: '10:00 AM', arrival: '02:00 PM' },
+    { from: 'mmct', to: 'pune', name: 'Pragati Express', number: '44558', departure: '02:00 PM', arrival: '06:00 PM' },
+    { from: 'mmct', to: 'pune', name: 'Sinhagad Express', number: '44559', departure: '06:00 PM', arrival: '10:00 PM' },
+    { from: 'sbc', to: 'tvc', name: 'Kochuveli Express', number: '55678', departure: '06:00 AM', arrival: '12:00 PM' },
+    { from: 'sbc', to: 'tvc', name: 'Kanyakumari Superfast Express', number: '55679', departure: '10:00 AM', arrival: '04:00 PM' },
+    { from: 'sbc', to: 'tvc', name: 'Island Express', number: '55680', departure: '02:00 PM', arrival: '08:00 PM' },
+    { from: 'sbc', to: 'tvc', name: 'Chennai Mail', number: '55681', departure: '06:00 PM', arrival: '12:00 AM' },
+    { from: 'pune', to: 'kyj', name: 'Pune Express', number: '88900', departure: '06:00 AM', arrival: '06:00 PM' },
+    { from: 'pune', to: 'kyj', name: 'Pune Duronto', number: '88901', departure: '08:00 AM', arrival: '08:00 PM' },
+    { from: 'pune', to: 'kyj', name: 'Pune Shatabdi', number: '88902', departure: '10:00 AM', arrival: '10:00 PM' },
+    { from: 'pune', to: 'kyj', name: 'Pune Indrayani', number: '88903', departure: '02:00 PM', arrival: '02:00 AM' },
+    { from: 'pune', to: 'kyj', name: 'Pune Deccan Queen', number: '88904', departure: '04:00 PM', arrival: '04:00 AM' },
+    { from: 'pune', to: 'kyj', name: 'Pune Pragati Express', number: '88905', departure: '06:00 PM', arrival: '06:00 AM' },
+    { from: 'pune', to: 'kyj', name: 'Pune Sinhagad Express', number: '88906', departure: '08:00 PM', arrival: '08:00 AM' },
+    { from: 'kpy', to: 'tvc', name: 'Chennai-Kochuveli SF Express', number: '90123', departure: '06:00 AM', arrival: '10:00 AM' },
+    { from: 'kpy', to: 'tvc', name: 'Chennai-TVC SF Express', number: '90124', departure: '08:00 AM', arrival: '12:00 PM' },
+    { from: 'kpy', to: 'tvc', name: 'Chennai-Trivandrum SF Express', number: '90125', departure: '10:00 AM', arrival: '02:00 PM' },
+    { from: 'kyj', to: 'mmct', name: 'Kanyakumari-Mumbai SF Express', number: '56789', departure: '06:00 AM', arrival: '02:00 PM' },
+    { from: 'kyj', to: 'mmct', name: 'Kanyakumari-CST Express', number: '56790', departure: '08:00 AM', arrival: '04:00 PM' },
+    { from: 'kyj', to: 'mmct', name: 'Kanyakumari-Mumbai Mail', number: '56791', departure: '10:00 AM', arrival: '06:00 PM' },
+    { from: 'kyj', to: 'mmct', name: 'Kanyakumari-Mumbai Rajdhani', number: '56792', departure: '12:00 PM', arrival: '08:00 PM' },
+    { from: 'bmt', to: 'ndls', name: 'Bikaner-Kamakhya Express', number: '34567', departure: '06:00 AM', arrival: '06:00 PM' },
+    { from: 'bmt', to: 'ndls', name: 'Bikaner-Delhi Sarai Rohilla SF Express', number: '34568', departure: '08:00 AM', arrival: '08:00PM' },
+    { from: 'bmt', to: 'ndls', name: 'Bikaner-Kolkata Express', number: '34569', departure: '10:00 AM', arrival: '10:00 PM' },
+    { from: 'bmt', to: 'ndls', name: 'Bikaner-Howrah Express', number: '34570', departure: '12:00 PM', arrival: '12:00 AM' },
+    { from: 'bmt', to: 'ndls', name: 'Bikaner-Puri Express', number: '34571', departure: '02:00 PM', arrival: '02:00 AM' },
+    { from: 'bmt', to: 'ndls', name: 'Bikaner-Yeshvantapur Express', number: '34572', departure: '04:00 PM', arrival: '04:00 AM' },
+    { from: 'ndls', to: 'mmct', name: 'New Delhi-Mumbai Rajdhani Express', number: '10001', departure: '08:00 AM', arrival: '08:00 PM' },
+    { from: 'ndls', to: 'mmct', name: 'New Delhi-Mumbai Duronto Express', number: '10002', departure: '10:00 AM', arrival: '10:00 PM' },
+    { from: 'ndls', to: 'mmct', name: 'New Delhi-Mumbai Garib Rath Express', number: '10003', departure: '12:00 PM', arrival: '12:00 AM' },
+    { from: 'ndls', to: 'mmct', name: 'New Delhi-Mumbai Superfast Express', number: '10004', departure: '02:00 PM', arrival: '02:00 AM' }
+
+];
+
+
+
+        function getQueryParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                from: params.get('from'),
+                to: params.get('to'),
+                date: params.get('date')
+            };
+        }
+
+    function displayTrains() {
+        const params = getQueryParams();
+        const filteredTrains = trainSchedules.filter(train => train.from === params.from && train.to === params.to);
+        const trainsList = document.getElementById('trainsList');
+
+        let trainsHTML = `
+            <p><strong>From:</strong> ${params.from}</p>
+            <p><strong>To:</strong> ${params.to}</p>
+            <p><strong>Date:</strong> ${params.date}</p>
+            <h3>Select a train:</h3>
+            <table class="table" border='' border-primary>
+                <thead>
+                    <tr>
+                        <th>Name (Number)</th>
+                        <th>Departure</th>
+                        <th>Arrival</th>
+                        <th>Book Now</th>
+                    </tr>
+                </thead>
+                <tbody>
+        `;
+
+        if (filteredTrains.length > 0) {
+            filteredTrains.forEach(train => {
+                trainsHTML += `
+                    <tr>
+                        <td>${train.name} (${train.number})</td>
+                        <td>${train.departure}</td>
+                        <td>${train.arrival}</td>
+                        <td><button class="btn btn-primary" onclick="bookNow('${train.name}', '${train.number}')">Book Now</button></td>
+                    </tr>
+                `;
+            });
+        } else {
+            trainsHTML += `<tr><td colspan="4">No trains available</td></tr>`;
+        }
+
+        trainsHTML += `
+                </tbody>
+            </table>
+        `;
+        trainsList.innerHTML = trainsHTML;
+    }
+
+    function bookNow(trainName, trainNumber) {
+        // Redirect to passenger details page with train details
+        window.location.href = `seat_reserve.html?trainName=${trainName}&trainNumber=${trainNumber}`;
+    }
+
+    window.onload = displayTrains;
+</script>
+
+</body>
+<footer class="text-center text-lg-start">
+  <div class="text-center p-3" style="background-color: rgba(240, 240, 240, 0.05);">
+    © 2024 Copyright:
+    <a class=""  href="">RailConnect.com</a>
+  </div>
+</footer>
+</html>
