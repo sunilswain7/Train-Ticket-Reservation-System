@@ -1,0 +1,33 @@
+        header {
+            background-color:#1D4E89;
+            color:#e7e9ec;
+            padding: 20px 0;
+        }
+        
+        .header1 {
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: right;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: right; 
+        }
+        
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        
+        nav ul li:first-child {
+            margin-left: 900px; 
+        }
+        
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
