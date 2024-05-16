@@ -89,6 +89,7 @@
                 <thead>
                     <tr>
                         <th>Name (Number)</th>
+                        <th>Date</th>
                         <th>Departure</th>
                         <th>Arrival</th>
                         <th>Book Now</th>
@@ -102,6 +103,7 @@
                 trainsHTML += `
                     <tr>
                         <td>${train.name} (${train.number})</td>
+                        <td>${params.date}</td>
                         <td>${train.departure}</td>
                         <td>${train.arrival}</td>
                         <td><button class="btn btn-primary" onclick="bookNow('${train.name}', '${train.number}')">Book Now</button></td>
