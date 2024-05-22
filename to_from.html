@@ -59,6 +59,10 @@
         const from = document.getElementById('from').value;
         const to = document.getElementById('to').value;
         const date = document.getElementById('date').value;
+        if (from===to){
+            alert("Departure and estination city cannot be the same!");
+        }
+        
         window.location.href = `select-train.html?from=${from}&to=${to}&date=${date}`;
     });
 </script>
