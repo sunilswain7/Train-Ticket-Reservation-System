@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    <style>
+      *
+      {
+        margin:0;
+        padding:0;
+        box-sizing: border-box;
+        font-family: 'Poppins',sans-serif;
+      }
+
+      .welcome
+      {
+        width:100%;
+        height:100vh;
+        padding:0% ;
+        display:flex;
+        justify-content: center;
+        
+      }
+
+      
+      .content
+      {
+        align-items: center;
+        font-size: 100px;
+      }
+      .content a{
+        font-size: 20px;
+        margin-top: 50%;
+        text-decoration: none;
+        border: 2px solid white;
+        color: white;
+        padding:14px 50px;
+        border-radius: 50px ;
+        margin-top: 20px;
+      }
+
+      .content a:hover{
+        background-color:  rgb(22, 137, 237);
+        transition: 1s;
+      } 
+
+      .back-video
+      {
+        position:absolute;
+        right:0;
+        bottom:0;
+        z-index: -1;
+      }
+
+      @media(min-aspect-ratio:16/9)
+    {
+      .back-video
+      {
+        width:100%;
+        height: auto;
+      }
+    }
+
+    @media(max-aspect-ratio:16/9)
+    {
+      .back-video
+      {
+        width:auto;
+        height: 100%;
+      }
+    }
+    </style>
+  </head>
+  <body>
+  <div class="welcome">
+
+    <video autoplay loop muted plays-inline class="back-video">
+      <source src="vid1.mp4" >
+    </video>
+
+
+    
+    <div class="content">
+      <p style=" margin-top: 35%;color:white;font-weight: 600;">Rail Connect</p>
+      <a href="signup.html" style="margin-left: 38%;z-index:+1">Get Started</a>
+    </div>
+  </div>
+
+  
+  </body>
+</html>
