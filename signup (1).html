@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    *
+    {
+     font-family: 'Poppins',sans-serif;
+    }
+
+    body {
+      
+      background-repeat: no-repeat;
+      background-attachment: scroll;
+      background-size: cover;
+      margin: 0;
+      overflow: hidden;
+      justify-content: center; 
+      align-items: center;
+    }
+  
+    nav {
+      width: 100%;
+      
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+      box-sizing: border-box; /* Include padding in width/height calculation */
+    
+      
+    }
+
+    nav.logo
+      {
+        width:1px;
+      }
+  
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+  
+    nav ul li {
+      display: inline-block;
+      
+    }
+  
+    nav ul li a {
+      text-decoration: none;
+      color: black;
+      font-size: 17px;
+      padding:10px;
+      font-weight: 600;
+      border-radius: 25px;
+    }
+
+    nav ul li a:hover{
+      background-color:black ;
+      color: white;
+      transition: 1s;
+      border-radius: 25px;
+    }
+  
+    .form {
+      padding: 20px;
+      margin: 5% auto; /* Center the form horizontally */
+      width: 400px;
+      border-radius: 25px;
+      background-color:  rgba(255, 255, 255, 0.77); /* Semi-transparent white background */
+    }
+
+    .submit_button
+    { 
+      width: 60px;
+      height: 30px;
+      border-radius: 5px;
+      background-color: rgb(46, 149, 238);
+      color: white;
+      border: 0;
+      cursor: pointer;
+      margin-left: 50px;
+    }
+
+    .cancel_button {
+      width: 60px;
+      height: 30px;
+      border-radius: 5px;
+      background-color: rgb(46, 149, 238);
+      color: white;
+      border: 0;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+    .submit_button:hover, .cancel_button:hover {
+      background-color: rgb(22, 137, 237);
+
+    }
+
+    .input{
+      
+      border-radius: 15px;
+      height:40px;
+      width: 125%;
+      border: none;
+    }
+
+    .input:hover
+    {
+      cursor: pointer;
+    }
+    
+    input{
+      text-align: center;
+      color: gray;
+      
+    }
+
+    .form2
+    {
+      transform:translateX(-80px)
+    }
+
+    
+  </style>
+</head>
+<body style="background-image: url(firefly1.jpg);">
+
+  <div class="welcome">
+    <nav>
+      <img src="your_logo_image_path_here" class="logo">
+      <ul>
+        <li><a href="welcome.html">HOME</a></li>
+        <li><a href="login.html">LOGIN</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+        <li><a href="help.html">HELP</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="form">
+    <h1 style="text-align:center;">Rail Connect</h1>
+    <h2 style="text-align:center;">Sign Up</h2>
+    <div class="form2">
+    <form style="margin-left:21%;margin-top:10%;"  action="./password.html">
+      <input class="input" type="text" id="fname" name="fname" placeholder="First name" size="30"  required><br><br>
+      <input class="input" type="text" id="lname" name="lname" placeholder="Last name" size="30"  required>
+      <br><br>
+      <label for="DOB">Date Of Birth : </label><br>
+      <input class="input" type="date" id="DOB" name="DOB"  required>
+      <br><br>
+      <label>Gender :</label><br>
+      <input type="radio" id="male" name="gender" value="Male" required>
+      <label for="gender">Male</label>
+      <input type="radio" id="female" name="gender" value="female" required>
+      <label for="gender">Female </label>
+      <input type="radio" id="other" name="gender" value="other" required>
+      <label for="gender">Other </label><br><br>
+      <input class="input" type="email" id="email" name="email" placeholder="Email" size="32" required>
+      <br><br>
+
+      </div>
+      <button type="submit" class="submit_button" style="margin-left:35%">Submit</button>
+      <button type="button" class="cancel_button">Cancel</button>
+    </form>
+  </div>
+
+  <script>
+    function validateForm() {
+      var fname = document.getElementById("fname").value;
+      var lname = document.getElementById("lname").value;
+      var dob = document.getElementById("DOB").value;
+      var gender = document.querySelector('input[name="gender"]:checked');
+      var email = document.getElementById("email").value;
+
+      if (fname === "" || lname === "" || dob === "" || gender === null || email === "") {
+        alert("Please fill in all fields.");
+        return false;
+      }
+
+      submitSignIn(); 
+      return true;
+    }
+
+    function submitSignIn() {
+      window.location.href = "password.html";
+    }
+  </script>
+
+</body>
+</html>

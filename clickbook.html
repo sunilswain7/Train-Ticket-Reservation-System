@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .click {
+            color: black;
+            font-size: 100px;
+            font-weight: bold;
+            text-decoration: none;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .click:hover {
+            cursor: pointer;
+            font-weight: bolder;
+            color: rgb(22, 137, 237);
+        }
+
+        body {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 style="text-align:center;font-family:Verdana, Geneva, Tahoma, sans-serif">Rail Connect</h2>
+    
+    <br><br><br>
+    <p>Click on arrow to go to booking page</p>
+    <a href="#" class="click" onclick="goToBooking()">></a>
+
+    <script>
+        
+        function goToBooking() {
+            window.location.href = "booking.html";
+        }
+    </script>
+</body>
+</html>
