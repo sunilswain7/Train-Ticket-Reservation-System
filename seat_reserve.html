@@ -52,7 +52,7 @@
             <button id="addPassenger">Add Passenger</button>
         </div>
 
-        <form>
+        <form id="reservationForm">
             <input type="submit" value="Book Now">
         </form>
     </div>
@@ -134,20 +134,33 @@
             toggleAddPassengerButton();
         }
     
-        document.querySelector("form").addEventListener("submit", function(event) {
-            var formInputs = document.querySelectorAll("input, select");
+        document.getElementById("reservationForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            var formInputs = document.querySelectorAll("#reservationForm input, #reservationForm select");
             var isValid = true;
-    
+
             formInputs.forEach(function(input) {
-                if (!input.checkValidity() || (input.type === "email" && !validateEmail(input.value)) || (input.type === "tel" && !validateMobile(input.value))) {
+                if (!input.checkValidity()) {
                     isValid = false;
                 }
             });
-    
+
             if (!isValid) {
-                event.preventDefault();
-                alert("Please fill out all required fields correctly.");
+                alert("Please fill out all required fields.");
+                return;
             }
+
+            const urlParams = new URLSearchParams(window.location.search);
+            localStorage.setItem('trainDetails', JSON.stringify({
+                trainName: urlParams.get('trainName'),
+                trainNumber: urlParams.get('trainNumber'),
+                from: urlParams.get('from'),
+                to: urlParams.get('to'),
+                date: urlParams.get('date')
+            }));
+
+            window.location.href = "payment.html";
         });
     </script>
     
