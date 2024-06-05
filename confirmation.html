@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Booking Confirmation</title>
+    <link rel="stylesheet" href="confirmation.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Booking Confirmed</h2>
+        <div id="ticketDetails"></div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const trainDetails = JSON.parse(localStorage.getItem('trainDetails'));
+            const ticketDetailsDiv = document.getElementById('ticketDetails');
+
+            function generatePNR() {
+                return Math.floor(1000000000 + Math.random() * 9000000000).toString();
+            }
+
+            function generateSeatAndCoach() {
+                let seatNumber = Math.floor(1 + Math.random() * 72); 
+                let coachNumber;
+                const types = ['A', 'S', 'D']; 
+                coachNumber = `${types[Math.floor(Math.random() * types.length)]}${Math.floor(1 + Math.random() * 3)}`;
+                return { seatNumber, coachNumber };
+            }
+
+            let ticketHTML = `
+                <h3>Train Details</h3>
+                <table class="ticket-table">
+                    <tr>
+                        <th>Train Name</th>
+                        <td>${trainDetails.trainName}</td>
+                    </tr>
+                    <tr>
+                        <th>Train Number</th>
+                        <td>${trainDetails.trainNumber}</td>
+                    </tr>
+                    <tr>
+                        <th>From</th>
+                        <td>${trainDetails.from}</td>
+                    </tr>
+                    <tr>
+                        <th>To</th>
+                        <td>${trainDetails.to}</td>
+                    </tr>
+                    <tr>
+                        <th>Date</th>
+                        <td>${trainDetails.date}</td>
+                    </tr>
+                </table>
+                <h3>Passenger Details</h3>
+                <table class="ticket-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Seat Type</th>
+                            <th>Coach Preferred</th>
+                            <th>PNR</th>
+                            <th>Seat Number</th>
+                            <th>Coach Number</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>John Doe</td>
+                            <td>johndoe@example.com</td>
+                            <td>Window</td>
+                            <td>AC Coach</td>
+                            <td>${generatePNR()}</td>
+                            <td>${generateSeatAndCoach().seatNumber}</td>
+                            <td>${generateSeatAndCoach().coachNumber}</td>
+                        </tr>
+                        <tr>
+                            <td>Jane Smith</td>
+                            <td>janesmith@example.com</td>
+                            <td>Aisle</td>
+                            <td>Second Sitting</td>
+                            <td>${generatePNR()}</td>
+                            <td>${generateSeatAndCoach().seatNumber}</td>
+                            <td>${generateSeatAndCoach().coachNumber}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            `;
+
+            ticketDetailsDiv.innerHTML = ticketHTML;
+        });
+    </script>
+
+    <footer class="text-center text-lg-start">
+        <div class="text-center p-3" style="background-color: rgba(240, 240, 240, 0.05);">
+            © 2024 Copyright:
+            <a href="#">RailConnect.com</a>
+        </div>
+    </footer>
+</body>
+</html>
