@@ -1,0 +1,117 @@
+body {
+    background-image: url(rlwy.jpg);
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: rgba(225,225,225,0.8);
+    padding: 40px;
+    border-radius: 25px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 600px;
+    text-align: center;
+    margin-right: 450px;
+    margin:5% auto;
+}
+nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    box-sizing: border-box; 
+  }
+
+
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-right: 20px;
+  }
+
+  nav ul li {
+    display: inline-block;
+    
+  }
+
+  nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-size: 17px;
+    padding:10px;
+    font-weight: 600;
+    border-radius: 25px;
+  }
+
+  nav ul li a:hover{
+    background-color:black ;
+    color: white;
+    transition: 1s;
+    border-radius: 25px;
+  }
+h1 {
+    margin-bottom: 20px;
+}
+
+form {
+    margin-bottom: 20px;
+    margin:5% auto;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+.welcome .a{
+    text-align: start;
+}

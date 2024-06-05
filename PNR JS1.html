@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PNR Generator</title>
+    <style>
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        form {
+            width: 80%;
+            margin: 20px auto;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <form id="pnrForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required>
+        
+        <label for="berth">Berth Preference:</label>
+        <select id="berth" required>
+            <option value="Lower">Lower</option>
+            <option value="Middle">Middle</option>
+            <option value="Upper">Upper</option>
+        </select>
+
+        <label for="boardingPoint">Boarding Point:</label>
+        <input type="text" id="boardingPoint" required>
+
+        <label for="endingPoint">Ending Point:</label>
+        <input type="text" id="endingPoint" required>
+
+        <button type="button" id="generatePnrBtn">Generate PNR</button>
+    </form>
+
+    <table id="pnrTable">
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>PNR</th>
+                <th>Name</th>
+                <th>Berth Preference</th>
+                <th>Boarding Point</th>
+                <th>Ending Point</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script src="pnr-generator1.js"></script>
+</body>
+</html>

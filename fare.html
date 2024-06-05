@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Railway Fare Table</title>
+    <link rel="stylesheet" href="fare.css">
+
+    <style>
+
+nav {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 5px;
+      box-sizing: border-box; 
+    }
+
+  
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      margin-right: 20px;
+    }
+  
+    nav ul li {
+      display: inline-block;
+      
+    }
+  
+    nav ul li a {
+      text-decoration: none;
+      color: black;
+      font-size: 17px;
+      padding:10px;
+      font-weight: 600;
+      border-radius: 25px;
+    }
+
+    nav ul li a:hover{
+      background-color:black ;
+      color: white;
+      transition: 1s;
+      border-radius: 25px;
+    }
+    </style>
+</head>
+<body>
+    <div>
+        <nav>
+          
+          <p style="font-size: x-large;font-weight: 900;"><b>Rail Connect</b></p>
+          <ul>
+            <li><a href="welcome.html">HOME</a></li>
+            <li><a href="login.html">LOGIN</a></li>
+            <li><a href="contact.html">CONTACT US</a></li>
+            <li><a href="help.html">HELP</a></li>
+          </ul>
+        </nav>
+    </div>
+   
+    <div class="container">
+        <h1>FARE PRICE ENQUIRY</h1>
+        <form id="fareForm">
+            <label for="from">From:</label>
+            <input type="text" id="from" name="from" required>
+            <label for="to">To:</label>
+            <input type="text" id="to" name="to" required>
+            <button type="submit">Get Fare</button>
+        </form>
+        <div id="fareTableContainer"></div>
+    </div>
+
+    <script src="fare.js"></script>
+</body>
+</html>
