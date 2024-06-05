@@ -138,8 +138,10 @@
     }
 
     function bookNow(trainName, trainNumber) {
-        window.location.href = `seat_reserve.html?trainName=${trainName}&trainNumber=${trainNumber}`;
-    }
+    const params = getQueryParams(); 
+    const { from, to, date } = params;
+    window.location.href = `seat_reserve.html?trainName=${trainName}&trainNumber=${trainNumber}&from=${from}&to=${to}&date=${date}`;
+}
 
     window.onload = displayTrains;
 </script>
