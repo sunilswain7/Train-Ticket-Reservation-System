@@ -42,7 +42,7 @@
                         </div> 
                         <div class="tab-content">
                             <div id="credit-card" class="tab-pane fade show active pt-3">
-                                <form role="form" onsubmit="event.preventDefault()">
+                                <form role="form" onsubmit="handlePayment(event)">
                                   <h6>Cards Accepted</h6>
                                   <img src="imgcards.png" alt="">
                                     <div class="form-group"> <label for="username">
@@ -51,54 +51,84 @@
                                     <div class="form-group"> <label for="cardNumber">
                                             <h6>Card number</h6>
                                         </label>
-                                        <div class="input-group"> <input type="text" name="cardNumber" placeholder="Valid card number" class="form-control " required>
+                                        <div class="input-group"> <input type="text" name="cardNumber" placeholder="Valid card number" class="form-control " required pattern="\d{16}">
                                           
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-8">
-                                            <div class="form-group"> <label><span class="hidden-xs">
+                                            <div class="form-group"> <label>
                                                         <h6>Expiration Date</h6>
-                                                    </span></label>
-                                                <div class="input-group"> <input type="number" placeholder="MM" name="" class="form-control" required> <input type="number" placeholder="YY" name="" class="form-control" required> </div>
+                                                    </label>
+                                                <div class="input-group"> <input type="number" placeholder="MM" name="" class="form-control" required min="1" max="12"> <input type="number" placeholder="YY" name="" class="form-control" required min="24"> </div>
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
                                             <div class="form-group mb-4"> <label data-bs-toggle="tooltip" title="Three digit CV code on the back of your card">
                                                     <h6>CVV <i class="fa fa-question-circle d-inline"></i></h6>
-                                                </label> <input type="text" required class="form-control"> </div>
+                                                </label> <input type="text" required class="form-control" pattern="\d{3}"> </div>
                                         </div>
                                     </div>
-                                    <div class="card-footer"> <button type="button" class="subscribe btn btn-primary btn-block shadow-sm"> Confirm Payment </button>
+                                    <div class="card-footer"> <button type="submit" class="subscribe btn btn-primary btn-block shadow-sm"> Confirm Payment </button>
                                 </form>
                             </div>
                         </div> 
                         <div id="paypal" class="tab-pane fade pt-3">
                             <h6 class="pb-2">Select your paypal account type</h6>
                             <div class="form-group "> <label class="radio-inline"> <input type="radio" name="optradio" checked> Domestic </label> <label class="radio-inline"> <input type="radio" name="optradio" class="ml-5">International </label></div>
-                            <p> <button type="button" class="btn btn-primary "><i class="fab fa-paypal mr-2"></i> Log into my Paypal</button> </p>
-                            <p class="text-muted"> Note: After clicking on the button, you will be directed to a secure gateway for payment. After completing the payment process, you will be redirected back to the website to view details of your order. </p>
+                            <p> <a href="https://www.paypal.com/signin" target="_blank">
+                                <button type="button" class="btn btn-primary">
+                                    <i class="fab fa-paypal mr-2"></i> Log into my Paypal
+                                </button>
+                            </a> </p>
+                           <p class="text-muted"> Note: After clicking on the button, you will be directed to a secure gateway for payment. After completing the payment process, you will be redirected back to the website to view details of your order. </p>
                         </div> 
                         <div id="net-banking" class="tab-pane fade pt-3">
                             <div class="form-group "> <label for="Select Your Bank">
                                     <h6>Select your Bank</h6>
                                 </label> <select class="form-control" id="ccmonth">
                                     <option value="" selected disabled>--Please select your Bank--</option>
-                                    <option>Bank 1</option>
-                                    <option>Bank 2</option>
-                                    <option>Bank 3</option>
-                                    <option>Bank 4</option>
-                                    <option>Bank 5</option>
-                                    <option>Bank 6</option>
-                                    <option>Bank 7</option>
-                                    <option>Bank 8</option>
-                                    <option>Bank 9</option>
-                                    <option>Bank 10</option>
-                                </select> </div>
+                                    <option value="sbi">State Bank Of India</option>
+                                    <option value="hdfc">HDFC Bank</option>
+                                    <option value="pnb">Punjab National Bank</option>
+                                    <option value="bob"> Bank Of Baroda</option>
+                                    <option value="ici">ICICI Bank</option>
+                                 </select> </div>
                             <div class="form-group">
-                                <p> <button type="button" class="btn btn-primary "><i class="fas fa-mobile-alt mr-2"></i> Proceed Payment</button> </p>
+                                <p> <button type="button" class="btn btn-primary " onclick="proceedtoCheckout()"><i class="fas fa-mobile-alt mr-2"></i> Proceed Payment</button> </p>
                             </div>
                             <p class="text-muted">Note: After clicking on the button, you will be directed to a secure gateway for payment. After completing the payment process, you will be redirected back to the website to view details of your order. </p>
+                            <script>
+                                function proceedtoCheckout () {
+                                    var bankselected = document.getElementById("ccmonth").value;
+
+                                    if (bankselected === 'sbi') {
+                                        window.location.href = "https://retail.onlinesbi.sbi/retail/login.htm";
+                                    }
+
+                                    if (bankselected === 'hdfc') {
+                                        window.location.href = "https://netbanking.hdfcbank.com/netbanking/";
+                                    }
+
+                                    if (bankselected === 'pnb') {
+                                        window.location.href = "https://netbanking.netpnb.com/corp/AuthenticationController?FORMSGROUP_ID__=AuthenticationFG&__START_TRAN_FLAG__=Y&__FG_BUTTONS__=LOAD&ACTION.LOAD=Y&AuthenticationFG.LOGIN_FLAG=1&BANK_ID=024";
+                                    }
+
+                                    if (bankselected === 'bob') {
+                                        window.location.href = "https://dil.bankofbaroda.in/commonLogin";
+                                    }
+
+                                    if (bankselected === 'ici') {
+                                        window.location.href = "https://infinity.icicibank.com/corp/AuthenticationController?FORMSGROUP_ID__=AuthenticationFG&__START_TRAN_FLAG__=Y&FG_BUTTONS__=LOAD&ACTION.LOAD=Y&AuthenticationFG.LOGIN_FLAG=1&BANK_ID=ICI&ITM=nli_cms_IB_internetbanking_login_btn&_gl=1*18v3v5t*_ga*NDQ5MDk5NTkyLjE2NTE2NTQ0NTY.*_ga_SKB78GHTFV*MTY1MjE1OTY1My44NS4xLjE2NTIxNjYzMDAuNTc.&_ga=2.177504229.1314183920.1678624547-850141744.1678338023";
+                                    }
+                                }
+                                function handlePayment(event) {
+                                        event.preventDefault();
+                                        const passengerDetails = JSON.parse(localStorage.getItem('passengerDetails')) || [];
+                                        const trainDetails = JSON.parse(localStorage.getItem('trainDetails')) || {};
+                                        window.location.href = 'confirmation.html';
+                                    }
+                            </script>
                         </div> 
                         
                     </div>
