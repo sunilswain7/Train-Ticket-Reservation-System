@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +14,7 @@
                     <li><a href="welcome.html">Home</a></li>
                     <li><a href="login.html">Login</a></li>
                     <li><a href="terms.html">Terms</a></li>
-                    <li><a href="help-center.html">Help</a></li>
+                    <li><a href="help.html">Help</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
@@ -55,12 +56,46 @@
             <input type="submit" value="Book Now">
         </form>
     </div>
-
     <script>
+        function validateEmail(email) {
+            var re = /\S+@\S+\.\S+/;
+            return re.test(email);
+        }
+    
+        function validateMobile(mobile) {
+            var re = /^[0-9]{10}$/;
+            return re.test(mobile);
+        }
+    
+        function toggleAddPassengerButton() {
+            var firstPassengerInputs = document.querySelectorAll('.passenger:first-of-type input, .passenger:first-of-type select');
+            var addPassengerButton = document.getElementById('addPassenger');
+    
+            var allFilled = true;
+            firstPassengerInputs.forEach(function(input) {
+                if (!input.value || (input.type === "email" && !validateEmail(input.value)) || (input.type === "tel" && !validateMobile(input.value))) {
+                    allFilled = false;
+                }
+            });
+    
+            if (allFilled) {
+                addPassengerButton.disabled = false;
+            } else {
+                addPassengerButton.disabled = true;
+            }
+        }
+    
+        toggleAddPassengerButton();
+    
+        var firstPassengerInputs = document.querySelectorAll('.passenger:first-of-type input, .passenger:first-of-type select');
+        firstPassengerInputs.forEach(function(input) {
+            input.addEventListener('input', toggleAddPassengerButton);
+        });
+    
         document.getElementById("addPassenger").addEventListener("click", function() {
             var passengerCount = document.querySelectorAll('.passenger').length;
             var newPassengerCount = passengerCount + 1;
-
+    
             var newPassenger = document.createElement('div');
             newPassenger.classList.add('passenger');
             newPassenger.innerHTML = `
@@ -72,7 +107,7 @@
                 
                 <label for="email${newPassengerCount}">Email:</label>
                 <input type="email" id="email${newPassengerCount}" name="email${newPassengerCount}" placeholder="Enter email" required>
-
+    
                 <label for="seat-type${newPassengerCount}">Seat Type:</label>
                 <select id="seat-type${newPassengerCount}" name="seat-type${newPassengerCount}" required>
                     <option value="">Select seat</option>
@@ -86,31 +121,37 @@
                     <option value="ac">AC Coach</option>
                     <option value="second-sitting">Second Sitting</option>
                 </select>
-
+    
                 <button class="remove-passenger" onclick="removePassenger(this)">Remove Passenger</button>
             `;
             document.querySelector('.add-passenger').before(newPassenger);
+    
+            toggleAddPassengerButton();
         });
-
+    
         function removePassenger(element) {
             element.parentNode.remove();
+            toggleAddPassengerButton();
         }
-
+    
         document.querySelector("form").addEventListener("submit", function(event) {
             var formInputs = document.querySelectorAll("input, select");
             var isValid = true;
-
+    
             formInputs.forEach(function(input) {
-                if (!input.checkValidity()) {
+                if (!input.checkValidity() || (input.type === "email" && !validateEmail(input.value)) || (input.type === "tel" && !validateMobile(input.value))) {
                     isValid = false;
                 }
             });
-
+    
             if (!isValid) {
                 event.preventDefault();
-                alert("Please fill out all required fields.");
+                alert("Please fill out all required fields correctly.");
             }
         });
     </script>
+    
+
+
 </body>
 </html>
