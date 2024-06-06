@@ -16,11 +16,12 @@ function addPnrToTable(event) {
     event.preventDefault();  
 
     const name = document.getElementById('name').value;
-    const berth = document.getElementById('berth').value;
+    const seat = document.getElementById('seat-type1').value;
+    const coach=document.getElementById('coach-preference').value;
     const boardingPoint = document.getElementById('boardingPoint').value;
     const endingPoint = document.getElementById('endingPoint').value;
     
-    if (name === '' || berth === '' || boardingPoint === '' || endingPoint === '') {
+    if (name === '' || seat === '' || boardingPoint === '' || endingPoint === ''||coach==='') {
         alert("All fields are required!");
         return;
     }
@@ -34,6 +35,7 @@ function addPnrToTable(event) {
     const cell4 = newRow.insertCell(3);
     const cell5 = newRow.insertCell(4);
     const cell6 = newRow.insertCell(5);
+    const cell7 = newRow.insertCell(6);
 
     
     const rowCount = pnrTable.rows.length;
@@ -41,9 +43,10 @@ function addPnrToTable(event) {
     cell1.textContent = rowCount;
     cell2.textContent = generatePNR();
     cell3.textContent = name;
-    cell4.textContent = berth;
-    cell5.textContent = boardingPoint;
-    cell6.textContent = endingPoint;
+    cell4.textContent = seat;
+    cell5.textContent = coach;
+    cell6.textContent = boardingPoint;
+    cell7.textContent = endingPoint;
 
     
     document.getElementById('pnrForm').reset();

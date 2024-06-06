@@ -100,18 +100,43 @@ nav ul li a {
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" oninput="validateInput(this)">
         
-        <label for="berth">Berth Preference:</label>
-        <select id="berth" required>
-            <option value="Lower">Lower</option>
-            <option value="Middle">Middle</option>
-            <option value="Upper">Upper</option>
+        <label for="seat-type1" name="seat-type1">Seat type:</label>
+        <select id="seat-type1" name="seat-type1" required>
+            <option value="window">Window</option>
+            <option value="aisle">Aisle</option>
+            <option value="middle">Middle</option>
+        </select>
+        <label for="coach-preference" name="coach-preference">Coach-preference:</label>
+        <select id="coach-preference" name="coach-preference" required>
+            <option value="ac">AC coach</option>
+            <option value="second-sitting">second-sitting</option>
         </select>
 
-        <label for="boardingPoint">Boarding Point:</label>
-        <input type="text" id="boardingPoint" required>
+        <label for="boardingPoint" name="boardingPoint">Boarding Point:</label>
+        <select id="boardingPoint"  name="from" required>
+            <option value="">Enter departure city</option>
+            <option value="kpy">KPY-Karunagapally</option>
+            <option value="kyj">KYJ-Kayamkulam Junction</option>
+            <option value="bmt">BMT-Hyderabad Begampet</option>
+            <option value="tvc">TVC-Trivandrum Central</option>
+            <option value="ndls">NDLS-New Delhi</option>
+            <option value="mmct">MMCT-Mumbai Central</option>
+            <option value="sbc">SBC-Bangalore City Junction</option>
+            <option value="pune">Pune Junction</option>
+        </select>
 
         <label for="endingPoint">Ending Point:</label>
-        <input type="text" id="endingPoint" required>
+        <select id="endingPoint" name="endingPoint" required>
+            <option value="">Enter destination city</option>
+            <option value="kpy">KPY-Karunagapally</option>
+            <option value="kyj">KYJ-Kayamkulam Junction</option>
+            <option value="bmt">BMT-Hyderabad Begampet</option>
+            <option value="tvc">TVC-Trivandrum Central</option>
+            <option value="ndls">NDLS-New Delhi</option>
+            <option value="mmct">MMCT-Mumbai Central</option>
+            <option value="sbc">SBC-Bangalore City Junction</option>
+            <option value="pune">Pune Junction</option>
+        </select>
 
         <button type="button" id="generatePnrBtn">Generate PNR</button>
     </form>
@@ -122,7 +147,8 @@ nav ul li a {
                 <th>S.No</th>
                 <th>PNR</th>
                 <th>Name</th>
-                <th>Berth Preference</th>
+                <th>Seat Type</th>
+                <th>Coach-preference</th>
                 <th>Boarding Point</th>
                 <th>Ending Point</th>
             </tr>
