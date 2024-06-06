@@ -68,11 +68,11 @@ nav ul li a {
 }
 
 header ul li a:hover{
-  background-color: rgb(183, 179, 179);
-  color:black;
-  padding: 8px;
-  border-radius: 25px;
-  transition: 1s;
+    background-color: rgb(183, 179, 179);
+    color:black;
+    padding: 8px;
+    border-radius: 25px;
+    transition: 1s;
 }
 .railconnect
 {
