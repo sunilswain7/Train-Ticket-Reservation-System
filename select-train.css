@@ -3,7 +3,9 @@ header {
     color: #fff;
     padding: 10px 0;
 }
-
+.white-text {
+    color: white;
+}
 .header1 {
     width: 80%;
     margin: auto;
