@@ -15,8 +15,8 @@ document.getElementById('fareForm').addEventListener('submit', function(event) {
                 <tr>
                     <th>From</th>
                     <th>To</th>
-                    <th>3A</th>
-                    <th>2A</th>
+                    <th>AC-second</th>
+                    <th>Second-sitting</th>
                 </tr>
             </thead>
             <tbody>
