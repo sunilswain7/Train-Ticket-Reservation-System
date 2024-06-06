@@ -93,6 +93,9 @@
             };
         }
 
+        const generateRandomFare = () => Math.floor(Math.random() * (2000 - 1000 + 1)) + 1000;
+        const price = generateRandomFare();
+
     function displayTrains() {
         const params = getQueryParams();
         const filteredTrains = trainSchedules.filter(train => train.from === params.from && train.to === params.to);
@@ -110,6 +113,7 @@
                         <th>Date</th>
                         <th>Departure</th>
                         <th>Arrival</th>
+                        <th>Price</th>
                         <th>Book Now</th>
                     </tr>
                 </thead>
@@ -124,6 +128,7 @@
                         <td>${params.date}</td>
                         <td>${train.departure}</td>
                         <td>${train.arrival}</td>
+                        <td>${price}</td>
                         <td><button class="btn btn-primary" onclick="bookNow('${train.name}', '${train.number}')">Book Now</button></td>
                     </tr>
                 `;
