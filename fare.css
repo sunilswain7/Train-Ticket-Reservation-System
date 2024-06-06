@@ -22,6 +22,12 @@ body {
     margin-right: 450px;
     margin:5% auto;
 }
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+
 .header1 {
     width: 80%;
     margin: auto;

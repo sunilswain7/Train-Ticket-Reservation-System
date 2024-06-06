@@ -27,9 +27,29 @@
         <h1>FARE PRICE ENQUIRY</h1>
         <form id="fareForm">
             <label for="from">From:</label>
-            <input type="text" id="from" name="from" required>
+            <select name="from" id="from" name="from">
+                <option value="">Enter departure city</option>
+                <option value="kpy">KPY-Karunagapally</option>
+                <option value="kyj">KYJ-Kayamkulam Junction</option>
+                <option value="bmt">BMT-Hyderabad Begampet</option>
+                <option value="tvc">TVC-Trivandrum Central</option>
+                <option value="ndls">NDLS-New Delhi</option>
+                <option value="mmct">MMCT-Mumbai Central</option>
+                <option value="sbc">SBC-Bangalore City Junction</option>
+                <option value="pune">Pune Junction</option>
+            </select>
             <label for="to">To:</label>
-            <input type="text" id="to" name="to" required>
+            <select name="to" id="to" name="to">
+                <option value="">Enter destination city</option>
+                <option value="kpy">KPY-Karunagapally</option>
+                <option value="kyj">KYJ-Kayamkulam Junction</option>
+                <option value="bmt">BMT-Hyderabad Begampet</option>
+                <option value="tvc">TVC-Trivandrum Central</option>
+                <option value="ndls">NDLS-New Delhi</option>
+                <option value="mmct">MMCT-Mumbai Central</option>
+                <option value="sbc">SBC-Bangalore City Junction</option>
+                <option value="pune">Pune Junction</option>
+            </select>
             <button type="submit">Get Fare</button>
         </form>
         <div id="fareTableContainer"></div>
