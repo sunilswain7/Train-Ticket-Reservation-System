@@ -58,113 +58,113 @@
         </form>
     </div>
     <script>
-        function validateEmail(email) {
-            var re = /\S+@\S+\.\S+/;
-            return re.test(email);
-        }
-    
-        function validateMobile(mobile) {
-            var re = /^[0-9]{10}$/;
-            return re.test(mobile);
-        }
-    
-        function toggleAddPassengerButton() {
-            var firstPassengerInputs = document.querySelectorAll('.passenger:first-of-type input, .passenger:first-of-type select');
-            var addPassengerButton = document.getElementById('addPassenger');
-    
-            var allFilled = true;
-            firstPassengerInputs.forEach(function(input) {
-                if (!input.value || (input.type === "email" && !validateEmail(input.value)) || (input.type === "tel" && !validateMobile(input.value))) {
-                    allFilled = false;
-                }
-            });
-    
-            if (allFilled) {
-                addPassengerButton.disabled = false;
-            } else {
-                addPassengerButton.disabled = true;
-            }
-        }
-    
-        toggleAddPassengerButton();
-    
+    function validateEmail(email) {
+        var re = /\S+@\S+\.\S+/;
+        return re.test(email);
+    }
+
+    function validateMobile(mobile) {
+        var re = /^[0-9]{10}$/;
+        return re.test(mobile);
+    }
+
+    function toggleAddPassengerButton() {
         var firstPassengerInputs = document.querySelectorAll('.passenger:first-of-type input, .passenger:first-of-type select');
+        var addPassengerButton = document.getElementById('addPassenger');
+        var allFilled = true;
+
         firstPassengerInputs.forEach(function(input) {
-            input.addEventListener('input', toggleAddPassengerButton);
-        });
-    
-        document.getElementById("addPassenger").addEventListener("click", function() {
-            var passengerCount = document.querySelectorAll('.passenger').length;
-            var newPassengerCount = passengerCount + 1;
-    
-            var newPassenger = document.createElement('div');
-            newPassenger.classList.add('passenger');
-            newPassenger.innerHTML = `
-                <label for="name${newPassengerCount}">Name:</label>
-                <input type="text" id="name${newPassengerCount}" name="name${newPassengerCount}" placeholder="Enter name" required>
-                
-                <label for="mobile${newPassengerCount}">Mobile Number:</label>
-                <input type="tel" id="mobile${newPassengerCount}" name="mobile${newPassengerCount}" placeholder="Enter mobile number" required>
-                
-                <label for="email${newPassengerCount}">Email:</label>
-                <input type="email" id="email${newPassengerCount}" name="email${newPassengerCount}" placeholder="Enter email" required>
-    
-                <label for="seat-type${newPassengerCount}">Seat Type:</label>
-                <select id="seat-type${newPassengerCount}" name="seat-type${newPassengerCount}" required>
-                    <option value="">Select seat</option>
-                    <option value="window">Window</option>
-                    <option value="aisle">Aisle</option>
-                    <option value="middle">Middle</option>
-                </select>
-                <label for="coach-preference${newPassengerCount}">Coach Preference:</label>
-                <select id="coach-preference${newPassengerCount}" name="coach-preference${newPassengerCount}" required>
-                    <option value="">Select coach-preference</option>
-                    <option value="ac">AC Coach</option>
-                    <option value="second-sitting">Second Sitting</option>
-                </select>
-    
-                <button class="remove-passenger" onclick="removePassenger(this)">Remove Passenger</button>
-            `;
-            document.querySelector('.add-passenger').before(newPassenger);
-    
-            toggleAddPassengerButton();
-        });
-    
-        function removePassenger(element) {
-            element.parentNode.remove();
-            toggleAddPassengerButton();
-        }
-    
-        document.getElementById("reservationForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-
-            var formInputs = document.querySelectorAll("#reservationForm input, #reservationForm select");
-            var isValid = true;
-
-            formInputs.forEach(function(input) {
-                if (!input.checkValidity()) {
-                    isValid = false;
-                }
-            });
-
-            if (!isValid) {
-                alert("Please fill out all required fields.");
-                return;
+            if (!input.value || (input.type === "email" && !validateEmail(input.value)) || (input.type === "tel" && !validateMobile(input.value))) {
+                allFilled = false;
             }
-
-            const urlParams = new URLSearchParams(window.location.search);
-            localStorage.setItem('trainDetails', JSON.stringify({
-                trainName: urlParams.get('trainName'),
-                trainNumber: urlParams.get('trainNumber'),
-                from: urlParams.get('from'),
-                to: urlParams.get('to'),
-                date: urlParams.get('date')
-            }));
-
-            window.location.href = "payment.html";
         });
-    </script>
-    
+
+        if (allFilled) {
+            addPassengerButton.disabled = false;
+        } else {
+            addPassengerButton.disabled = true;
+        }
+    }
+
+    toggleAddPassengerButton();
+
+    var firstPassengerInputs = document.querySelectorAll('.passenger:first-of-type input, .passenger:first-of-type select');
+    firstPassengerInputs.forEach(function(input) {
+        input.addEventListener('input', toggleAddPassengerButton);
+    });
+
+    document.getElementById("addPassenger").addEventListener("click", function() {
+        var passengerCount = document.querySelectorAll('.passenger').length;
+        var newPassengerCount = passengerCount + 1;
+
+        var newPassenger = document.createElement('div');
+        newPassenger.classList.add('passenger');
+        newPassenger.innerHTML = `
+            <label for="name${newPassengerCount}">Name:</label>
+            <input type="text" id="name${newPassengerCount}" name="name${newPassengerCount}" placeholder="Enter name" required>
+
+            <label for="mobile${newPassengerCount}">Mobile Number:</label>
+            <input type="tel" id="mobile${newPassengerCount}" name="mobile${newPassengerCount}" placeholder="Enter mobile number" required>
+
+            <label for="email${newPassengerCount}">Email:</label>
+            <input type="email" id="email${newPassengerCount}" name="email${newPassengerCount}" placeholder="Enter email" required>
+
+            <label for="seat-type${newPassengerCount}">Seat Type:</label>
+            <select id="seat-type${newPassengerCount}" name="seat-type${newPassengerCount}" required>
+                <option value="">Select seat</option>
+                <option value="window">Window</option>
+                <option value="aisle">Aisle</option>
+                <option value="middle">Middle</option>
+            </select>
+            <label for="coach-preference${newPassengerCount}">Coach Preference:</label>
+            <select id="coach-preference${newPassengerCount}" name="coach-preference${newPassengerCount}" required>
+                <option value="">Select coach-preference</option>
+                <option value="ac">AC Coach</option>
+                <option value="second-sitting">Second Sitting</option>
+            </select>
+
+            <button class="remove-passenger" onclick="removePassenger(this)">Remove Passenger</button>
+        `;
+        document.querySelector('.add-passenger').before(newPassenger);
+
+        toggleAddPassengerButton();
+    });
+
+    function removePassenger(element) {
+        element.parentNode.remove();
+        toggleAddPassengerButton();
+    }
+
+    document.getElementById("reservationForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        var formInputs = document.querySelectorAll("#reservationForm input, #reservationForm select");
+        var isValid = true;
+
+        formInputs.forEach(function(input) {
+            if (!input.checkValidity()) {
+                isValid = false;
+            }
+        });
+
+        if (!isValid) {
+            alert("Please fill out all required fields.");
+            return;
+        }
+
+        const urlParams = new URLSearchParams(window.location.search);
+        localStorage.setItem('trainDetails', JSON.stringify({
+            trainName: urlParams.get('trainName'),
+            trainNumber: urlParams.get('trainNumber'),
+            from: urlParams.get('from'),
+            to: urlParams.get('to'),
+            date: urlParams.get('date')
+        }));
+
+        window.location.href = "payment.html";
+    });
+</script>
+
 
 
 </body>

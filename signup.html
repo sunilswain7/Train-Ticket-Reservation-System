@@ -17,45 +17,7 @@
       justify-content: center; 
       align-items: center;
     }
-  
-    nav {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 5px;
-      box-sizing: border-box; 
-      
-    }
-  
-    nav ul 
-    {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      margin-right: 20px;
-    }
-  
-    nav ul li {
-      display: inline-block;
-      
-    }
-  
-    nav ul li a {
-      text-decoration: none;
-      color: black;
-      font-size: 17px;
-      padding:10px;
-      font-weight: 600;
-      border-radius: 25px;
-    }
 
-    nav ul li a:hover{
-      background-color:black ;
-      color: white;
-      transition: 1s;
-      border-radius: 25px;
-    }
   
     .form {
       padding: 20px;
@@ -116,26 +78,56 @@
     {
       transform:translateX(-80px)
     }
+    header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+
+.header1 {
+    width: 80%;
+    margin: auto;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+.railconnect
+{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
     
   </style>
 </head>
 <body style="background-image: url(firefly1.jpg);">
-
-  <div class="welcome">
-    <nav>
-      <p style="font-weight:900;color:white;font-size:x-large"><b>Rail Connect</b></p>
-                 <ul>
-                    <li><a href="welcome.html">Home</a></li>
-                    <li><a href="login.html">Login</a></li>
-                    <li><a href="terms.html">Terms</a></li>
-                    <li><a href="help.html">Help</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="fare.html">Fare</a></li>
-                </ul>
-
-    </nav>
-  </div>
+  <header>
+    <div class="header1">
+        <nav>
+            <ul>
+                <li><a href="welcome.html">Home</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="terms.html">Terms</a></li>
+                <li><a href="help.html">Help</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="fare.html">Fare</a></li>
+                <li style="margin-left: 700px;"><b>RailConnect</b></li>
+            </ul>
+        </nav>
+    </div>
+</header>
 
   <div class="form">
     <h1 style="text-align:center;">Rail Connect</h1>
