@@ -41,10 +41,6 @@ nav ul li a {
     color: #fff;
     text-decoration: none;
 }
-.railconnect
-{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
 
 @media only screen and (min-width: 768px) {
     .header1 {

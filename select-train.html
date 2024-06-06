@@ -8,23 +8,26 @@
     <link rel="stylesheet" href="select-train.css">
 </head>
 <body background="lan-deng-kXgDL_y7Iiw-unsplash.jpg">
+    <header>
+        <div class="header1">
+            <nav>
+                <ul>
+                    <li><a href="welcome.html">Home</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="terms.html">Terms</a></li>
+                    <li><a href="help.html">Help</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li style="margin-left: 700px;"><b>RailConnect</b></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
     <div class="container">
         <h2>Available Trains</h2>
         <div id="trainsList"></div>
     </div>
-        <header>
-        <div class="header1">
-            <nav>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Login</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Terms</a></li>
-                </ul>
-            </nav>
-            <div class="railconnect">RailConnect</div>
-        </div>
-    </header>
+    
+
     <script>
           const trainSchedules = [
           { from: 'kpy', to: 'kyj', name: 'Chennai Express', number: '12345', departure: '10:00 AM', arrival: '12:00 PM' },
@@ -136,8 +139,10 @@
     }
 
     function bookNow(trainName, trainNumber) {
-        window.location.href = `seat_reserve.html?trainName=${trainName}&trainNumber=${trainNumber}`;
-    }
+    const params = getQueryParams(); 
+    const { from, to, date } = params;
+    window.location.href = `seat_reserve.html?trainName=${trainName}&trainNumber=${trainNumber}&from=${from}&to=${to}&date=${date}`;
+}
 
     window.onload = displayTrains;
 </script>

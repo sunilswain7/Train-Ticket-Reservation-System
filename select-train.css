@@ -28,6 +28,10 @@ nav ul li a {
 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+body {
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
 @media only screen and (min-width: 768px) {
     .header1 {

@@ -51,11 +51,50 @@
             padding: 10px 20px;
             font-size: 16px;
         }
+        header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+
+.header1 {
+    width: 80%;
+    margin: auto;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
         
         
     </style>
 </head>
 <body>
+    <header>
+        <div class="header1">
+            <nav>
+                <ul>
+                    <li><a href="welcome.html">Home</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="terms.html">Terms</a></li>
+                    <li><a href="help.html">Help</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
     <form id="pnrForm">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" oninput="validateInput(this)">
