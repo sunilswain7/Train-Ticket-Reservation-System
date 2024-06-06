@@ -95,6 +95,13 @@ body {
             text-decoration: none;
         }
         
+        header ul li a:hover{
+          background-color: rgb(183, 179, 179);
+          color:black;
+          padding: 8px;
+          border-radius: 25px;
+          transition: 1s;
+        }
         .container {
             background-color: #fff;
             border-radius: 16px;

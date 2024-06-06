@@ -66,6 +66,14 @@ nav ul li a {
     color: #fff;
     text-decoration: none;
 }
+
+header ul li a:hover{
+  background-color: rgb(183, 179, 179);
+  color:black;
+  padding: 8px;
+  border-radius: 25px;
+  transition: 1s;
+}
 .railconnect
 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
