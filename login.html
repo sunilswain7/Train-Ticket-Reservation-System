@@ -1,47 +1,81 @@
+<!DOCTYPE html>
 <html>
- <head>
+<head>
   <style>
-    body{
-      background-image: url(Rlwy2.jpg);
+    *
+    {
+      font-family: 'Poppins',sans-serif;;
+    }
+
+    body {
+      background-image: url(asserts/firefly1.jpg);
       background-repeat: no-repeat;
-            background-attachment: scroll;
-            background-size: cover;
-            margin: 0 ;
-            overflow: hidden;
-            justify-content: center; 
-            align-items: center;
-            
-    }
-    header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
-}
-.header1 {
-    width: 80%;
-    margin: auto;
-}
-
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin-right: 20px;
-}
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-}
-   form {
-      font-weight: bold;
+      background-attachment: scroll;
+      background-size: cover;
+      margin: 0;
+      overflow: hidden;
+      justify-content: center; 
+      align-items: center;
     }
 
-    .submit_button, .cancel_button {
+    nav {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 5px;
+      box-sizing: border-box; 
+    }
+
+  
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      margin-right: 20px;
+    }
+  
+    nav ul li {
+      display: inline-block;
+      
+    }
+  
+    nav ul li a {
+      text-decoration: none;
+      color: black;
+      font-size: 17px;
+      padding:10px;
+      font-weight: 600;
+      border-radius: 25px;
+    }
+
+    nav ul li a:hover{
+      background-color:black ;
+      color: white;
+      transition: 1s;
+      border-radius: 25px;
+    }
+
+    .form {
+      padding: 20px;
+      margin: 5% auto;
+      width: 350px;
+      border-radius: 25px;
+      background-color: hsla(0, 0%, 100%, 0.77); 
+    }
+
+    .password1 {
+      border: none; 
+      border-radius: 15px;
+      height: 40px;
+      width: 100%; 
+      margin-bottom: 10px; 
+      box-sizing: border-box; 
+      padding: 5px; 
+    }
+
+    .set_button,
+    .cancel_button {
       width: 60px;
       height: 30px;
       border-radius: 5px;
@@ -49,66 +83,62 @@ nav ul li a {
       color: white;
       border: 0;
       cursor: pointer;
-      margin-left: 10px;
+      margin-right: 10px; 
     }
 
-    .submit_button:hover, .cancel_button:hover {
+    .set_button:hover,
+    .cancel_button:hover {
       background-color: rgb(22, 137, 237);
-    }  
-    
-    body
-    {
-      text-align: center;
     }
 
-    .input{
-      border: 0cap;
-      border-radius: 15px;
-      height:40px;
-      size:40;
-    }
-
-    .input:hover
-    {
-      cursor: pointer;
-    }
-
-    input{
+    input {
       text-align: center;
       color: gray;
     }
-    </style>
- </head>
-  <body>
-    <header>
-      <div class="header1">
-          <nav>
-              <ul>
-                  <li><a href="welcome.html">Home</a></li>
-                  <li><a href="login.html">Login</a></li>
-                  <li><a href="terms.html">Terms</a></li>
-                  <li><a href="help.html">Help</a></li>
-                  <li><a href="contact.html">Contact</a></li>
-                  <li style="margin-left: 700px;"><b>RailConnect</b></li>
-              </ul>
-          </nav>
-      </div>
-  </header>
+
+  </style>
+</head>
+<body>
+  <div class="welcome">
+    <nav>
+      <p style="font-weight:900;color:white;font-size:x-large;margin-left:8px"><b>Rail Connect</b></p>
+      <ul>
+        <li><a href="welcome.html">HOME</a></li>
+        <li><a href="signup.html">SIGN UP</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+        <li><a href="help.html">HELP</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="form">
+    <h2 style="text-align:center;font-family:Verdana, Geneva, Tahoma, sans-serif">Rail Connect</h2>
+    <h2 style="text-align:center;font-family:Verdana, Geneva, Tahoma, sans-serif">LOGIN</h2>
+
+    <form class="input" >
+      <input class="password1" type="text" id="uName" name="uName" placeholder="User Name" required><br><br>
+      <input class="password1" type="password" id="password" name="password" placeholder="Password" required><br><br>
+    
+
+    <button type="button" onclick="login()" class="set_button" style="margin-left: 30%;">Login</button>
+    <button type="button" onclick="alert('Login canceled')" class="cancel_button">Cancel</button>
+
+  </form>
+  </div>
+
   <script>
-    function submitSignIn()
-    {
-      window.location.href="to_from.html";
+    function login() {
+      const username = document.getElementById('uName').value;
+      const password = document.getElementById('password').value;
+
+      if (username === "admin" && password === "admin") {
+        alert("Login successful");
+        
+        window.location.href = "clickbook.html"; 
+      } else 
+      {
+        alert("Invalid username or password");
+      }
     }
   </script>
-    <h2 style="text-align:center;font-family:Verdana, Geneva, Tahoma, sans-serif">Rail Connect</h2>
-  <h2 style="text-align:center;font-family:Verdana, Geneva, Tahoma, sans-serif">Login</h2>
-    <form >
- 
-      <input class="input" type="text" name="uname" id="uname" size="30" style="background-color: bisque;" placeholder="User Name "><br><br>
-    
-      <input class="input" type="password" name="password" id="password" size="30" style="background-color: bisque;" placeholder="Password ">
-    </form>
-    <button type="submit" onclick="submitSignIn()" class="submit_button">Submit</button>
-    <button type="button"  class="cancel_button">Cancel</button>
-  </body>
+</body>
 </html>
