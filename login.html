@@ -2,9 +2,8 @@
 <html>
 <head>
   <style>
-    *
-    {
-      font-family: 'Poppins',sans-serif;;
+    * {
+      font-family: 'Poppins', sans-serif;
     }
 
     body {
@@ -17,7 +16,6 @@
       justify-content: center; 
       align-items: center;
     }
-
 
     .form {
       padding: 20px;
@@ -58,77 +56,84 @@
       text-align: center;
       color: gray;
     }
+
     header {
-  background-color: #333;
-  color: #fff;
-  padding: 10px 0;
-}
+      background-color: #333;
+      color: #fff;
+      padding: 10px 0;
+    }
 
-.header1 {
-  width: 80%;
-  margin: auto;
-}
+    .header1 {
+      width: 80%;
+      margin: auto;
+    }
 
-nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
 
-nav ul li {
-  display: inline;
-  margin-right: 20px;
-}
+    nav ul li {
+      display: inline;
+      margin-right: 20px;
+    }
 
-nav ul li a {
-  color: #fff;
-  text-decoration: none;
-}
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
 
   </style>
 </head>
 <body>
   <header>
     <div class="header1">
-        <nav>
-            <ul>
-                <li><a href="welcome.html">Home</a></li>
-                <li><a href="login.html">Login</a></li>
-                <li><a href="terms.html">Terms</a></li>
-                <li><a href="help.html">Help</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="fare.html">Fare</a></li>
-                <li style="margin-left: 700px;"><b>RailConnect</b></li>
-            </ul>
-        </nav>
+      <nav>
+        <ul>
+          <li><a href="welcome.html">Home</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="terms.html">Terms</a></li>
+          <li><a href="help.html">Help</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="fare.html">Fare</a></li>
+          <li style="margin-left: 700px;"><b>RailConnect</b></li>
+        </ul>
+      </nav>
     </div>
-</header>
+  </header>
+
   <div class="form">
     <h2 style="text-align:center;font-family:Verdana, Geneva, Tahoma, sans-serif">Rail Connect</h2>
     <h2 style="text-align:center;font-family:Verdana, Geneva, Tahoma, sans-serif">LOGIN</h2>
 
-    <form class="input" >
+    <form class="input">
       <input class="password1" type="text" id="uName" name="uName" placeholder="User Name" required><br><br>
       <input class="password1" type="password" id="password" name="password" placeholder="Password" required><br><br>
     
-      <input type="checkbox" id
-    <button type="button" onclick="login()" class="set_button" style="margin-left: 30%;">Login</button>
-    <button type="button" onclick="alert('Login canceled')" class="cancel_button">Cancel</button>
-
-  </form>
+      <input type="checkbox" id="terms" name="terms" required>
+      <label for="terms">Accept <a href="terms.html">Terms and Conditions</a></label><br><br>
+    
+      <button type="button" onclick="login()" class="set_button" style="margin-left: 30%;">Login</button>
+      <button type="button" onclick="alert('Login canceled')" class="cancel_button">Cancel</button>
+    </form>
   </div>
 
   <script>
     function login() {
       const username = document.getElementById('uName').value;
       const password = document.getElementById('password').value;
+      const termsChecked = document.getElementById('terms').checked;
+
+      if (!termsChecked) {
+        alert("You must accept the terms and conditions before logging in.");
+        return;
+      }
 
       if (username === "admin" && password === "admin") {
         alert("Login successful");
-        
         window.location.href = "to_from.html"; 
-      } else 
-      {
+      } else {
         alert("Invalid username or password");
       }
     }
